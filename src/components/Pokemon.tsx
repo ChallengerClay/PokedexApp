@@ -4,16 +4,16 @@ import {getPokemon} from '../helpers/getPokemon'
 
 export const Pokemon = ({pokemon}:any) => {
     const {name, url} = pokemon
-    const [pokemonInfo, setPokemon] = useState([])
+    const [pokemonInfo, setPokemonInfo] = useState([])
     const [image, setImage] = useState('')
     //console.log(url)
     useEffect(() =>{
-        getPokemon(url,setPokemon)
+        getPokemon(url,setPokemonInfo)
     },[]);
 
     useEffect(() =>{
        if(pokemonInfo) {
-        let imagen = pokemonInfo['sprites']['other']['dream_world']['front_default']
+        let imagen = pokemonInfo.sprites?.other?.['official-artwork'].front_default
         setImage(imagen)
        }
 

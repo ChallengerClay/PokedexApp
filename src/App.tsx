@@ -20,7 +20,6 @@ function App() {
   return (
     <> 
     <h1 className="test">Pokedex</h1>
-    <Button variant="contained">Hello World</Button>
     {
       pokemonList.map(pokes =>{
         return(
