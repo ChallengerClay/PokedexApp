@@ -20,13 +20,17 @@ function App() {
   return (
     <> 
     <h1 className="test">Pokedex</h1>
-    {
-      pokemonList.map(pokes =>{
-        return(
-          <Pokemon key={pokes.name} pokemon={pokes}/>
-        )
-      })
-    }
+      <div className="screen">
+        <div className="pokemonList">
+        {
+          pokemonList.map(pokes =>{
+            return(
+              <Pokemon key={pokes.name} pokemon={pokes}/>
+            )
+          })
+        }
+        </div>
+      </div>
     </>
   )
 }

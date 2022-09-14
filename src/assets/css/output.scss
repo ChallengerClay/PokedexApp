@@ -1,6 +1,58 @@
+.main{
+    background-color: #db6260;
+}
+
+.screen{
+    background: linear-gradient(
+    to right,
+    #91D2F5,
+    #fdfdfd
+    );
+    background-size: 400% 400%;
+    border: 7px solid #000;
+    animation: body 5s infinite ease-in-out;
+    border-radius:10px;
+
+    .pokemonList{
+        display: flex;
+        flex-wrap: wrap;
+        align-content:space-around;
+        flex-direction:row;
+    }
+}
+
+@keyframes body {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+  
+
 .test{
     vertical-align: top;
     color: red;
     font-weight: bold;
     font-size: 18px;
+}
+
+.card{
+    font-weight: bold;
+    font-size: 29px;
+    
+    img{
+        width: 110px;
+    }
+    .textName {
+        color: #000
+    }
+
+    .textName:first-letter {
+        text-transform: uppercase;
+    }
 }

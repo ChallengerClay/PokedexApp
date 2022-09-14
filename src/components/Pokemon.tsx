@@ -6,7 +6,7 @@ export const Pokemon = ({pokemon}:any) => {
     const {name, url} = pokemon
     const [pokemonInfo, setPokemonInfo] = useState([])
     const [image, setImage] = useState('')
-    //console.log(url)
+    
     useEffect(() =>{
         getPokemon(url,setPokemonInfo)
     },[]);
@@ -20,8 +20,10 @@ export const Pokemon = ({pokemon}:any) => {
     },[pokemonInfo]);
   return (
     <>
+    <div className="card">
     <img src={image}/>
-    <div>{name}</div>
+    <div className="textName"><p>{name}</p></div>
+    </div>
     </>
     
   )

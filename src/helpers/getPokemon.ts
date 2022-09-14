@@ -1,7 +1,7 @@
 
 import axios from 'axios'
-export const getPokemon = async (url:string, state:any) =>{
-   await axios.get(url)
+export const getPokemon = (url:string, state:any) =>{
+    axios.get(url)
    .then(function (result) {
     return state(result.data.results? result.data.results : result.data)
    })
