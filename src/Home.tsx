@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
 import {getPokemon} from './helpers/getPokemon'
 import './App.css'
-import './assets/css/output.scss'
 import Button from '@mui/material/Button';
 import Pokemon from './components/Pokemon';
 
 
-function App() {
+function Home() {
   //const [count, setCount] = useState(0)
   const [pokemonList, setPokemonList] = useState([])
 
@@ -35,4 +34,4 @@ function App() {
   )
 }
 
-export default App
+export default Home

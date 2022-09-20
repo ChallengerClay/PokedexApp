@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react'
+import {Link} from 'react-router-dom'
 import React from 'react'
 import {getPokemon} from '../helpers/getPokemon'
 
 export const Pokemon = ({pokemon}:any) => {
-    const {name, url} = pokemon
+    let {name, url} = pokemon
     const [pokemonInfo, setPokemonInfo] = useState([])
     const [image, setImage] = useState('')
+    if(name == 'nidoran-m'){
+      name = 'Nidoran♂'
+    }else if(name == 'nidoran-f'){
+      name = 'Nidoran♀'
+    }
     
     useEffect(() =>{
         getPokemon(url,setPokemonInfo)
@@ -21,8 +27,10 @@ export const Pokemon = ({pokemon}:any) => {
   return (
     <>
     <div className="card">
-    <img src={image}/>
-    <div className="textName"><p>{name}</p></div>
+    <Link to={`/Pokemon/${name}`}>
+    <img className="pokeImg" src={image}/>
+    <div className="textName"><h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2></div>
+    </Link>
     </div>
     </>
     
