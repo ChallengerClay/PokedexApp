@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Link  } from 'react-router-dom'
 import Home from '../Home'
+import PokemonInfo from '../components/PokemonInfo'
 import '../assets/css/output.scss'
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
     </header>
         <Routes>
             <Route path="/" element={<Home/>} />
+            <Route path="/pokemon/:name" element={<PokemonInfo/>} />
         </Routes>    
     </BrowserRouter>
     )

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import {getPokemon} from './helpers/getPokemon'
 import './App.css'
-import Button from '@mui/material/Button';
 import Pokemon from './components/Pokemon';
 
 
