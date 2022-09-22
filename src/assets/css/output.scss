@@ -24,7 +24,52 @@ $fairy: #D685AD;
 .main{
     background-color: #db6260;
 }
+.nameBox{
+    background:white;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    padding: 1.5rem;
+    .pkmnName{
+        font-family: 'Fira Sans', sans-serif;
+    }
+}
+.typeList{
+    font-family: 'Fira Sans', sans-serif;
+    background: rgb(233, 232, 232);
+    margin-left: 15rem;
+    margin-right: 15rem;
+    padding:2rem;
+    border-radius:5px;
+    .types{
+        background:white;
+        -webkit-box-shadow: 6px 8px 15px 5px rgba(0,0,0,0.28); 
+        box-shadow: 6px 8px 15px 5px rgba(0,0,0,0.28);
+        display: inline-block;
+        margin-left:1rem;
+        padding:0.4rem;
+        border-radius:5px;
+        color: white;
 
+        p{
+            margin-block-start: 0.5rem;
+            margin-block-end: 0.5rem;
+            text-shadow: 1px 1px 1px #333;
+        }
+    }
+    .typenormal{
+        background:$normal;
+        background-image: -webkit-linear-gradient(#a8a878, #8a8a59);
+        background-image: linear-gradient(#a8a878, #8a8a59);
+        border-color: #79794e;
+    }
+    .typeflying{
+        background:$flying;
+        background-image: -webkit-linear-gradient(#a890f0, #9180c4);
+        background-image: linear-gradient(#a890f0, #9180c4);
+        border-color: #7762b6;
+    }
+    
+}
 .screen{
     background: linear-gradient(
     to right,

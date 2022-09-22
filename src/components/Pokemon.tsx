@@ -31,8 +31,12 @@ export const Pokemon = ({pokemon}:any) => {
   return (
     <>
     <div className="card">
-    <img className="pokeImg" src={image}/>
-    <div className="textName"><a onClick={(event) => HandleClick(event)}><h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2></a></div>
+      <img className="pokeImg" src={image}/>
+      <div className="textName">
+        <a onClick={(event) => HandleClick(event)}>
+          <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
+        </a>
+      </div>
     </div>
     </>
     
