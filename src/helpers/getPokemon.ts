@@ -1,9 +1,17 @@
+import { pokeApi } from '.';
+import { IPokemon, IPokemonDetails, IPokemonsList } from '../types/pokemon/interfaces';
 
-import axios from 'axios'
-export const getPokemon = (url:string, state:any) =>{
-    axios.get(url)
-   .then(function (result) {
-    return state(result.data.results? result.data.results : result.data)
-   })
-   .catch(error => console.error(error))
-}
+export const getPokemonsList = async (): Promise<IPokemonsList> => {
+  const { data } = await pokeApi.get<IPokemonsList>('/pokemon', {
+    params: {
+      limit: 20,
+      offset: 0,
+    },
+  });
+  return data;
+};
+
+export const getPokemonDetails = async (name: string): Promise<IPokemonDetails> => {
+  const { data } = await pokeApi.get<IPokemonDetails>(`/pokemon/${name}`);
+  return data;
+};

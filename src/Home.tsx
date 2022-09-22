@@ -1,36 +1,32 @@
-import { useState, useEffect } from 'react'
-import {getPokemon} from './helpers/getPokemon'
-import './App.css'
-import Pokemon from './components/Pokemon';
-
+import { useState, useEffect } from 'react';
+import './App.css';
+import Pokemon from './components/pokemon/Pokemon';
+import { getPokemonsList } from './helpers/getPokemon';
+import { IPokemonsList } from './types/pokemon/interfaces';
 
 function Home() {
-  //const [count, setCount] = useState(0)
-  const [pokemonList, setPokemonList] = useState([])
+  const [pokemonList, setPokemonList] = useState<IPokemonsList>();
 
-  //const fetch = await getApi(url)
-  const url = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=20"
-  useEffect(
-    () =>{
-    getPokemon(url,setPokemonList)
-  },
-  [])
+  useEffect(() => {
+    const handlePokemons = async () => {
+      const pokemons = await getPokemonsList();
+      setPokemonList(pokemons);
+    };
+    handlePokemons();
+  }, []);
+
   return (
-    <> 
-    <h1 className="test">Pokedex</h1>
+    <>
+      <h1 className="test">Pokedex</h1>
       <div className="screen">
         <div className="pokemonList">
-        {
-          pokemonList.map(pokes =>{
-            return(
-              <Pokemon key={pokes.name} pokemon={pokes}/>
-            )
-          })
-        }
+          {pokemonList?.results.map((pokes) => {
+            return <Pokemon key={pokes.name} pokemon={pokes} />;
+          })}
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
