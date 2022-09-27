@@ -17,7 +17,7 @@ export const PokemonInfo = () => {
               return (
                 // classnames library for this cases
                 <div key={type.slot} className={`types type${type.type.name}`}>
-                  <p>{type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)}</p>
+                  <p>{type.type.name}</p>
                 </div>
               );
             })}

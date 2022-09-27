@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
 import { getPokemonDetails } from '../../helpers/getPokemon';
 import { IPokemon, IPokemonDetails } from '../../types/pokemon/interfaces';
+import {formatName} from './utils';
 
 type PokemonProps = { 
   pokemon: IPokemon;
@@ -13,12 +14,7 @@ export const Pokemon = ({ pokemon }: PokemonProps) => {
   const [pokemonInfo, setPokemonInfo] = useState<IPokemonDetails>();
   const [image, setImage] = useState('');
   const navigate = useNavigate();
-  // TODO: refact
-  // if (name == 'nidoran-m') {
-  //   name = 'Nidoran♂';
-  // } else if (name == 'nidoran-f') {
-  //   name = 'Nidoran♀';
-  // }
+  
   const HandleClick = () => {
     navigate(`/pokemon/${name}`, { state: { pokeInfo: pokemonInfo } });
   };
@@ -38,7 +34,7 @@ export const Pokemon = ({ pokemon }: PokemonProps) => {
       <img className="pokeImg" src={image} />
       <div className="textName">
         <a onClick={HandleClick}>
-          <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
+          <h2>{formatName(name)}</h2>
         </a>
       </div>
     </div>

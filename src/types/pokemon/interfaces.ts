@@ -10,6 +10,10 @@ export interface IPokemon {
   url: string;
 }
 
+export interface IPokemonName {
+  [key:string] : string
+}
+
 export interface IPokemonDetails {
   id: number;
   name: string;
@@ -17,7 +21,20 @@ export interface IPokemonDetails {
   weight: number;
   sprites: {
     front_default: string;
-    // TODO: improve type!
-    other: any;
+    other:{
+      dream_world: {
+        front_default: string,
+        front_female?: string,
+      },
+      home: {
+        front_default: string,
+        front_female?: string,
+        front_shiny: string,
+        front_shiny_female?: string
+      },
+      ['official-artwork']: {
+        front_default: string
+      }
+    };
   };
 }

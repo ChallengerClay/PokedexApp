@@ -4,7 +4,7 @@ import { IPokemon, IPokemonDetails, IPokemonsList } from '../types/pokemon/inter
 export const getPokemonsList = async (): Promise<IPokemonsList> => {
   const { data } = await pokeApi.get<IPokemonsList>('/pokemon', {
     params: {
-      limit: 20,
+      limit: 40,
       offset: 0,
     },
   });
