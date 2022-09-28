@@ -3,9 +3,11 @@ import './App.css';
 import Pokemon from './components/pokemon/Pokemon';
 import { getPokemonsList } from './helpers/getPokemon';
 import { IPokemonsList } from './types/pokemon/interfaces';
+import {useQuery} from 'react-query';
 
 function Home() {
-  const [pokemonList, setPokemonList] = useState<IPokemonsList>();
+  const {data: pokemonList, status}= useQuery(['pokemonList'], getPokemonsList)
+ /* const [pokemonList, setPokemonList] = useState<IPokemonsList>();
 
   useEffect(() => {
     const handlePokemons = async () => {
@@ -13,8 +15,24 @@ function Home() {
       setPokemonList(pokemons);
     };
     handlePokemons();
-  }, []);
+  }, []);*/
+  
+  if (status ==='loading'){
+    return (
+      <div>
+        <p>Loading List.....</p>
+      </div>
+    )
+  }
 
+  if (status ==='error'){
+    return (
+      <div>
+        <p>An error has ocurred</p>
+      </div>
+    )
+  }
+  
   return (
     <>
       <h1 className="test">Pokedex</h1>

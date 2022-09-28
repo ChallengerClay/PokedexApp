@@ -4,6 +4,7 @@ import React from 'react';
 import { getPokemonDetails } from '../../helpers/getPokemon';
 import { IPokemon, IPokemonDetails } from '../../types/pokemon/interfaces';
 import {formatName} from './utils';
+import {useQuery} from 'react-query';
 
 type PokemonProps = { 
   pokemon: IPokemon;

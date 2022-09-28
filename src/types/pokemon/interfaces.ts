@@ -38,3 +38,20 @@ export interface IPokemonDetails {
     };
   };
 }
+
+export interface IRegionsList {
+  count: number;
+  next: string;
+  previous: string;
+  results: IRegion[];
+}
+
+export interface IRegion {
+  name: string;
+  url: string;
+}
+
+export interface IRegionDetails {
+  id:number;
+  name:string;
+}

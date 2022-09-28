@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom';
+import {formatName} from './pokemon/utils';
 
 export const PokemonInfo = () => {
   const location = useLocation();
@@ -8,7 +9,7 @@ export const PokemonInfo = () => {
       <div className="screen">
         <div>
           <div className="nameBox">
-            <h1 className="pkmnName">{name.toUpperCase()}</h1>
+            <h1 className="pkmnName">{formatName(name)}</h1>
           </div>
           <img src={sprites?.other?.['official-artwork'].front_default} alt={name} width="20%" />
           <div className="typeList">
