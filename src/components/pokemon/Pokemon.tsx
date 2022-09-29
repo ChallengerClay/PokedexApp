@@ -12,32 +12,37 @@ type PokemonProps = {
 
 export const Pokemon = ({ pokemon }: PokemonProps) => {
   const { name } = pokemon;
-  const [pokemonInfo, setPokemonInfo] = useState<IPokemonDetails>();
-  const [image, setImage] = useState('');
+  const {data:pokemonInfo, status} = useQuery(['pokemonList', name], () =>getPokemonDetails(name))
   const navigate = useNavigate();
   
   const HandleClick = () => {
     navigate(`/pokemon/${name}`, { state: { pokeInfo: pokemonInfo } });
   };
 
-  useEffect(() => {
-    const handlePokemon = async () => {
-      const pokemon = await getPokemonDetails(name);
-      setPokemonInfo(pokemon);
-      setImage(pokemon.sprites?.other?.['official-artwork'].front_default);
-    };
-    handlePokemon();
-  }, []);
+
+  if (status ==='loading'){
+    return (
+      <div className="o-pokeball c-loader u-swing"></div>
+    )
+  }
+
+  if (status ==='error'){
+    return (
+      <div>
+        <p>An error has ocurred</p>
+      </div>
+    )
+  }
 
   return (
     // TODO(nit): move css file into folder
     <div className="card">
-      <img className="pokeImg" src={image} />
+      <a onClick={HandleClick}>
+      <img className="pokeImg" src={pokemonInfo.sprites?.other?.['official-artwork'].front_default} />
       <div className="textName">
-        <a onClick={HandleClick}>
           <h2>{formatName(name)}</h2>
-        </a>
       </div>
+      </a>
     </div>
   );
 };

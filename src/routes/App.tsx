@@ -9,7 +9,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <header>
-        <ul>
+        <ul className="navdisplay">
           <li>
             <Link to="/">Home</Link>
           </li>

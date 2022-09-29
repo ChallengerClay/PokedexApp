@@ -1,21 +1,16 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import Pokemon from './components/pokemon/Pokemon';
 import { getPokemonsList } from './helpers/getPokemon';
 import { IPokemonsList } from './types/pokemon/interfaces';
 import {useQuery} from 'react-query';
+const  LazyPokemon = React.lazy(() => import('./components/pokemon/Pokemon'));
 
 function Home() {
-  const {data: pokemonList, status}= useQuery(['pokemonList'], getPokemonsList)
- /* const [pokemonList, setPokemonList] = useState<IPokemonsList>();
-
-  useEffect(() => {
-    const handlePokemons = async () => {
-      const pokemons = await getPokemonsList();
-      setPokemonList(pokemons);
-    };
-    handlePokemons();
-  }, []);*/
+  const {data: pokemonList, status, isFetching}= useQuery(['pokemonList'], getPokemonsList,
+  {
+    refetchOnWindowFocus: false,
+    refetchInterval:2000
+  })
   
   if (status ==='loading'){
     return (
@@ -35,11 +30,13 @@ function Home() {
   
   return (
     <>
-      <h1 className="test">Pokedex</h1>
+      <h1 className="test">Pokedex {isFetching && <p>Loading List.....</p>}</h1>
       <div className="screen">
         <div className="pokemonList">
           {pokemonList?.results.map((pokes) => {
-            return <Pokemon key={pokes.name} pokemon={pokes} />;
+            return <React.Suspense fallback="loading...." key={pokes.name}>
+            <LazyPokemon key={pokes.name} pokemon={pokes} />
+            </React.Suspense>;
           })}
         </div>
       </div>
