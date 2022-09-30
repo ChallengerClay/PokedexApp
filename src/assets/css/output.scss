@@ -28,6 +28,25 @@ $fairy: #D685AD;
 .main{
     background-color: #db6260;
 }
+ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  li {
+    list-style: none;
+    display:inline;
+    a{
+        margin: 0 10px;
+        padding: 5px 10px;
+        color: #333;
+        font-size:18px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+    }
+  }
 .nameBox{
     background:white;
     margin-left: 15rem;

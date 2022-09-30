@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import {formatName} from './pokemon/utils';
+import {formatName} from './utils';
 
 export const PokemonInfo = () => {
   const location = useLocation();

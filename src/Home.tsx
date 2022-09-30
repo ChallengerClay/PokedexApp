@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { getPokemonsList } from './helpers/getPokemon';
-import { IPokemonsList } from './types/pokemon/interfaces';
+//import { IPokemonsList } from './types/pokemon/interfaces';
 import {useQuery} from 'react-query';
 const  LazyPokemon = React.lazy(() => import('./components/pokemon/Pokemon'));
 
 function Home() {
-  const {data: pokemonList, status, isFetching}= useQuery(['pokemonList'], getPokemonsList,
-  {
-    refetchOnWindowFocus: false,
-    refetchInterval:2000
-  })
+  const {data: pokemonList, status, isFetching}= useQuery(['pokemonList'], getPokemonsList)
   
   if (status ==='loading'){
     return (
@@ -34,7 +30,7 @@ function Home() {
       <div className="screen">
         <div className="pokemonList">
           {pokemonList?.results.map((pokes) => {
-            return <React.Suspense fallback="loading...." key={pokes.name}>
+            return <React.Suspense  key={pokes.name}>
             <LazyPokemon key={pokes.name} pokemon={pokes} />
             </React.Suspense>;
           })}

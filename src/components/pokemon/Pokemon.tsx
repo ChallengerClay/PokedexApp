@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import React from 'react';
+//import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getPokemonDetails } from '../../helpers/getPokemon';
-import { IPokemon, IPokemonDetails } from '../../types/pokemon/interfaces';
+import { IPokemon } from '../../types/pokemon/interfaces';
 import {formatName} from './utils';
 import {useQuery} from 'react-query';
 
@@ -35,7 +34,6 @@ export const Pokemon = ({ pokemon }: PokemonProps) => {
   }
 
   return (
-    // TODO(nit): move css file into folder
     <div className="card">
       <a onClick={HandleClick}>
       <img className="pokeImg" src={pokemonInfo.sprites?.other?.['official-artwork'].front_default} />

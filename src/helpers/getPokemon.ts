@@ -1,5 +1,5 @@
 import { pokeApi } from '.';
-import { IPokemon, IPokemonDetails, IPokemonsList, IRegion } from '../types/pokemon/interfaces';
+import { IPokemonDetails, IPokemonsList, IRegionList } from '../types/pokemon/interfaces';
 
 export const getPokemonsList = async (): Promise<IPokemonsList> => {
   const { data } = await pokeApi.get<IPokemonsList>('/pokemon', {
@@ -16,7 +16,7 @@ export const getPokemonDetails = async (name: string): Promise<IPokemonDetails> 
   return data;
 };
 
-export const getRegions = async (): Promise<IRegion> => {
-  const { data } = await pokeApi.get<IRegion>('/region');
+export const getRegions = async (): Promise<IRegionList> => {
+  const { data } = await pokeApi.get<IRegionList>('/region');
   return data
 }

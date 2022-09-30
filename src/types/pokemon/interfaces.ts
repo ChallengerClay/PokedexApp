@@ -39,7 +39,7 @@ export interface IPokemonDetails {
   };
 }
 
-export interface IRegionsList {
+export interface IRegionList {
   count: number;
   next: string;
   previous: string;
