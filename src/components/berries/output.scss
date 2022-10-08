@@ -1,0 +1,33 @@
+.berryList{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 16px;
+}
+.berryCard{
+    background-color: #ddd;
+    margin: 1rem;
+    padding: 1rem;
+    border:2px solid black;
+    transition:1s;
+    .berryImg{
+        padding: 0.4rem;
+        height:240px
+    }
+    p{
+        font-size:20px;
+        vertical-align: bottom;
+    }
+    p::first-letter{
+        text-transform: uppercase;
+    }
+    .berryName{
+       p{
+        text-transform: uppercase;
+       }
+    }
+}
+.berryCard:hover{
+    border: 2px solid blue;
+    -webkit-box-shadow: -8px 1px 15px 2px rgba(0,0,0,0.91); 
+    box-shadow: -8px 1px 15px 2px rgba(0,0,0,0.91);
+}

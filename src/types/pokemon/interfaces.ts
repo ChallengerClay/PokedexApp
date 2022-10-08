@@ -55,3 +55,15 @@ export interface IRegionDetails {
   id:number;
   name:string;
 }
+
+export interface IBerriesList{
+  count: number;
+  next: string;
+  previous: string;
+  results: IBerry[];
+}
+
+export interface IBerry {
+  name: string;
+  url: string;
+}

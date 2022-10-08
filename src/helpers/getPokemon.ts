@@ -20,3 +20,8 @@ export const getRegions = async (): Promise<IRegionList> => {
   const { data } = await pokeApi.get<IRegionList>('/region');
   return data
 }
+
+export const getBerries = async(): Promise<IBerriesList> => {
+  const { data } = await pokeApi.get<IBerriesList>('/berry');
+  return data
+}
